@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini StarCraft</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="hp">hp: 3</h1>
+    <div class="background">
+        <img id="drone" src="./images/drone.png" alt="drone">
+        <img id="spit" src="./images/spit.png" alt="spit">
+        <img id="bunker" src="./images/bunker.png" alt="bunker">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        var hp = 3;
+        $("#drone").click(function() {      
+          console.log("침 발사");       
+          $("#spit").fadeIn();      
+          $("#spit").animate({left: '+=250'}) 
+          $("#spit").fadeOut(function() {
+            hp = hp - 1;
+            $("#hp").text("HP: " + hp);
+            if (hp == 0) { $("#bunker").fadeOut();}
+         });     
+          $("#spit") .css({left:'150px'});      
+        });
+      </script>
+</body>
+</html>
